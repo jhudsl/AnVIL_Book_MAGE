@@ -1,12 +1,12 @@
 ---
-title: "AnVIL Book Name"
+title: "MAGE on AnVIL"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: book.bib
 biblio-style: apalike
 link-citations: yes
-description: Description about Course/Book.
+description: Walkthrough exploring the MAGE (Multi-ancestry Analysis of Gene Expression) dataset on AnVIL
 favicon: assets/AnVIL_style/anvil_favicon.ico
 ---
 
