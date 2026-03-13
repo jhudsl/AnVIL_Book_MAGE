@@ -25,11 +25,8 @@ _Programming skills_
 <!-- **Novice**: no programming experience needed -->
 :::
 
-## AnVIL Collection {-}
 
-Please check out our full collection of AnVIL and related resources: https://hutchdatascience.org/AnVIL_Collection/
-
-# Learning Objectives {-}
+## Learning Objectives {-}
 
 <!-- Learning objectives for this activity come from the [Genetics Core Competencies](https://genetics-gsa.org/education/genetics-learning-framework/): -->
 
@@ -39,3 +36,6 @@ Please check out our full collection of AnVIL and related resources: https://hut
 
 <!-- Please also see the Bioinformatics core competencies for undergraduate life sciences education from NIBLSE: https://journals.plos.org/plosone/article/figure?id=10.1371/journal.pone.0196878.t002 -->
 
+## AnVIL Collection {-}
+
+Please check out our full collection of AnVIL and related resources: https://hutchdatascience.org/AnVIL_Collection/
