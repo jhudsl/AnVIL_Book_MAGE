@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 MAGE Data | MAGE on AnVIL</title>
+  <meta name="description" content="Walkthrough exploring the MAGE (Multi-ancestry Analysis of Gene Expression) dataset on AnVIL" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 MAGE Data | MAGE on AnVIL" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Walkthrough exploring the MAGE (Multi-ancestry Analysis of Gene Expression) dataset on AnVIL" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 MAGE Data | MAGE on AnVIL" />
+  
+  <meta name="twitter:description" content="Walkthrough exploring the MAGE (Multi-ancestry Analysis of Gene Expression) dataset on AnVIL" />
+  
+
+
+
+<meta name="date" content="2026-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="assets/AnVIL_style/anvil_favicon.ico" type="image/x-icon" />
+<link rel="prev" href="index.html"/>
+<link rel="next" href="about-the-authors.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={MeasurementID}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '{MeasurementID}');
+</script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="assets/style_config_default.css" type="text/css" />
+<link rel="stylesheet" href="assets/AnVIL_style/style_config_AnVIL.css" type="text/css" />
+<link rel="stylesheet" href="assets/style.css" type="text/css" />
+<link rel="stylesheet" href="assets/AnVIL_Template/AnVIL_Template.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://anvilproject.org/" target="_blank"><img src="assets/AnVIL_style/logo-anvil.png" style="width: 80%; padding-left: 15px; padding-top: 8px;"</a>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About this Book</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#skills-level"><i class="fa fa-check"></i>Skills Level</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#learning-objectives"><i class="fa fa-check"></i>Learning Objectives</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#anvil-collection"><i class="fa fa-check"></i>AnVIL Collection</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="mage-data.html"><a href="mage-data.html"><i class="fa fa-check"></i><b>1</b> MAGE Data</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="mage-data.html"><a href="mage-data.html#access-data"><i class="fa fa-check"></i><b>1.1</b> Access MAGE Data</a></li>
+<li class="chapter" data-level="1.2" data-path="mage-data.html"><a href="mage-data.html#input-data"><i class="fa fa-check"></i><b>1.2</b> Input data</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="mage-data.html"><a href="mage-data.html#raw-rna-seq-data-and-alignments-731-individuals-779-cell-lines"><i class="fa fa-check"></i><b>1.2.1</b> Raw RNA-seq data and alignments (731 individuals, 779 cell lines)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="mage-data.html"><a href="mage-data.html#output-data"><i class="fa fa-check"></i><b>1.3</b> Processed data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the Authors</a></li>
+<li class="divider"></li>
+<p style="text-align:center;"> <a href="https://github.com/jhudsl/OTTR_Template" target="blank" > This content was published with</a> <a href="https://bookdown.org/" target="blank"> bookdown by: </a> </p>
+<p style="text-align:center;"> <a href="http://jhudatascience.org/"> The Johns Hopkins Data Science Lab </a></p>
+<a href="http://jhudatascience.org/"><img src="https://jhudatascience.org/images/dasl.png" style=" width: 80%; padding-left: 40px; padding-top: 8px; vertical-align: top "</a>
+<p style="text-align:center; font-size: 12px;"> <a href="https://github.com/rstudio4edu/rstudio4edu-book/"> Style adapted from: rstudio4edu-book </a> <a href ="https://creativecommons.org/licenses/by/2.0/"> (CC-BY 2.0) </a></p>
+<p style="padding-left: 40px;"><div class="trapezoid" style = "padding-left: 40px;"><span><a href="https://docs.google.com/forms/d/e/1FAIpQLScrDVb_utm55pmb_SHx-RgELTEbCCWdLea0T3IzS0Oj00GE4w/viewform?usp=pp_url&entry.1565230805=MAGE+on+AnVIL"> Click here to provide feedback</a> <img src="assets/itcr_arrow.png" style=" width: 10%" ></span></div></p>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">MAGE on AnVIL</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<head>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=10.0,initial-scale=1.0">
+  <!--script src="https://kit.fontawesome.com/6a26f47516.js"></script-->
+  <!--<script src="assets/hideOutput.js"></script>-->
+</head>
+        
+
+
+<div class="hero-image-container"> 
+  <img class= "hero-image" src="assets/AnVIL_style/dasl_thin_main_image.png">
+</div>
+<div id="mage-data" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> MAGE Data<a href="mage-data.html#mage-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter gives an overview of what data is available in the <a href="https://explore.anvilproject.org/datasets/4af9fbfc-de22-4a6d-b481-5fe756a45b23">MAGE dataset on AnVIL</a>.</p>
+<blockquote>
+<p>MAGE comprises RNA-seq data from lymphoblastoid cell lines derived from 731 individuals from the 1000 Genomes Project (1KGP), representing 26 globally-distributed populations across five continental groups. These data offer a large, geographically diverse, open access resource to facilitate studies of the distribution, genetic underpinnings, and evolution of variation in human transcriptomes and include data from several ancestry groups that were poorly represented in previous studies.</p>
+</blockquote>
+<p>There are a total of 3285 files in the MAGE dataset hosted on AnVIL. In this chapter we will give a brief tour through the files so that you can get a sense of what is available and can more easily find the files you need for specific analyses.</p>
+<p>We will discuss:</p>
+<ol style="list-style-type: decimal">
+<li><a href="mage-data.html#access-data">How to access MAGE data</a></li>
+<li><a href="mage-data.html#input-data">“Input” data</a>:</li>
+<li>RNA-seq data (fastq and bam files) generated as part of the MAGE study</li>
+<li>VCF data <a href="https://doi.org/10.1016/j.cell.2022.08.004">previously generated by the New York Genome Center (NYGC)</a></li>
+<li>Sample metadata</li>
+<li><a href="%22output-data">“Output” data resulting from various analyses</a>: eQTL and sQTL results, as well as other analyses</li>
+</ol>
+<div id="access-data" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Access MAGE Data<a href="mage-data.html#access-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="input-data" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Input data<a href="mage-data.html#input-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For the MAGE study, newly generated RNA-seq data was paired with existing variant calls to carry out QTL analysis for 731 individuals.</p>
+<div id="raw-rna-seq-data-and-alignments-731-individuals-779-cell-lines" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Raw RNA-seq data and alignments (731 individuals, 779 cell lines)<a href="mage-data.html#raw-rna-seq-data-and-alignments-731-individuals-779-cell-lines" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Raw fastq files can also be found on SRA (Accession: <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA851328">PRJNA851328</a>)</em></p>
+<blockquote>
+<p>We performed RNA sequencing of 779 cell lines. These cell lines represent 731 unique samples, 24 of which were sequenced in triplicate. Sequencing was performed in batches of 15-48 cell lines each (twelve batches of 48 cell lines, four batches of 47 cell lines, and one batch of 15 cell lines). For samples with replicates, replicates were divided between batches such that one replicate of the three was sequenced in one batch, and the other two replicates were sequenced in a separate batch to allow for analysis of inter- and intra-batch variation for each of these samples.</p>
+</blockquote>
+<p>In addition to the 779 sets of raw paired-end RNA-seq reads, the MAGE dataset on AnVIL includes alignment files (and indexes) for each cell line. Details about how the alignment was performed can be found at <a href="https://github.com/mccoy-lab/MAGE/tree/main/analysis_pipeline/01_data_preparation/splicing_quantification" class="uri">https://github.com/mccoy-lab/MAGE/tree/main/analysis_pipeline/01_data_preparation/splicing_quantification</a>.</p>
+<p>The MAGE dataset on AnVIL therefore contains:
+- 779 forward reads (fastq)
+- 779 reverse reads (fastq)
+- 779 alignment files (bam)
+- 779 index files (bai)</p>
+</div>
+</div>
+<div id="output-data" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Processed data<a href="mage-data.html#output-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<hr>
+<center> 
+  <div class="footer">
+      All illustrations <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY. </a>
+      <br>
+      All other materials <a href= "https://creativecommons.org/licenses/by/4.0/"> CC-BY </a> unless noted otherwise.
+  </div>
+</center>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about-the-authors.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
